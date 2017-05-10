@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Configuration;
  */
 
 @Configuration
-@ComponentScan //启用主键扫描，默认当前类所在包及子包
+//启用主键扫描，默认当前类所在包及子包 - 使用 basePackageClasses 配置扫描包，类型更安全
+@ComponentScan
 public class CDPlayerConfig {
 }
