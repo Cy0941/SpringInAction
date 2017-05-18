@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  * @since: Thinkingbar Web Project 1.0
  */
 
-@Component
+//@Component
 public class SgtPeppers implements CompactDisc {
 
     private String title = "跨时代";

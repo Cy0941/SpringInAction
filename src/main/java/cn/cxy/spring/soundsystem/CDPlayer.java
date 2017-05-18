@@ -12,13 +12,13 @@ import org.springframework.stereotype.Component;
  * @since: Thinkingbar Web Project 1.0
  */
 
-@Component
+//@Component
 public class CDPlayer implements MediaPlayer {
 
     private CompactDisc cd;
 
     //cxy 构造函数式注入与注解不同？？？
-    @Autowired
+    //@Autowired
     public CDPlayer(CompactDisc cd){
         this.cd = cd;
     }

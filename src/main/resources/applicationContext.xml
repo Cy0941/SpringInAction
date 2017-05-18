@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="cn.cxy.spring.soundsystem.CompactDisc" id="compactDisc"/>
+
+    <bean class="cn.cxy.spring.soundsystem.CDPlayer" id="cdPlayer" c:cd-ref="compactDisc">
+        <!--<constructor-arg ref="compactDisc"/>-->
+        /*
+        c命名空间规则：
+        c - 命名空间前缀
+        cd/0/为空 - 构造器参数名/构造器中参数索引/只有一个参数时直接省略 -- 推荐使用第二种
+        ref - 表示 bean 的引用
+        */
+    </bean>
+
+    <bean class="cn.cxy.spring.soundsystem.BlankDisc" id="blankDisc" c:artist="JayChou" c:title="依然范特西">
+        /*
+        c命名空间规则：
+        c - 命名空间前缀
+        cd/0/为空 - 构造器参数名/构造器中参数索引/只有一个参数时直接省略 -- 推荐使用第二种
+        ref - 表示 bean 的引用
+        */
+        /*构造方法中含有列表*/
+        <constructor-arg>
+            <list>
+                <value>value1</value>
+                <value>value2</value>
+                <value>value3</value>
+            </list>
+        </constructor-arg>
+    </bean>
+
+</beans>

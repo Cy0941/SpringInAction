@@ -12,8 +12,8 @@ import org.springframework.context.annotation.Configuration;
  * @since: Thinkingbar Web Project 1.0
  */
 
-@Configuration
+//@Configuration
 //启用主键扫描，默认当前类所在包及子包 - 使用 basePackageClasses 配置扫描包，类型更安全
-@ComponentScan
+//@ComponentScan
 public class CDPlayerConfig {
 }
