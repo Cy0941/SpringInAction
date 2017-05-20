@@ -4,4 +4,26 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+
+  <!--1、设置默认激活的 profile：web应用上下文-->
+  <context-param>
+    <param-name>spring.profiles.default</param-name>
+    <param-value>prod</param-value><!--可以同时激活多个 profile，多个名称使用逗号分隔-->
+  </context-param>
+
+  <!--2、设置默认激活的 profile：DispatcherServlet默认值-->
+  <servlet>
+    <servlet-name>appServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+      <param-name>spring.profiles.default</param-name>
+      <param-value>prod</param-value><!--可以同时激活多个 profile，多个名称使用逗号分隔-->
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>appServlet</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+  
+  
 </web-app>
