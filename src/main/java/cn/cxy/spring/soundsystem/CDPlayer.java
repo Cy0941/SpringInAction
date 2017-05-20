@@ -1,8 +1,5 @@
 package cn.cxy.spring.soundsystem;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
 /**
  * Function: TODO
  * Reason: TODO ADD REASON(可选).</br>
@@ -19,7 +16,17 @@ public class CDPlayer implements MediaPlayer {
 
     //cxy 构造函数式注入与注解不同？？？
     //@Autowired
-    public CDPlayer(CompactDisc cd){
+    /*public CDPlayer(CompactDisc cd){
+        this.cd = cd;
+    }*/
+
+
+    /**
+     * 通过 setter 方法注入
+     *
+     * @param cd
+     */
+    public void setCd(CompactDisc cd) {
         this.cd = cd;
     }
 

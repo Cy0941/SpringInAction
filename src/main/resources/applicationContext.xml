@@ -2,26 +2,27 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean class="cn.cxy.spring.soundsystem.CompactDisc" id="compactDisc"/>
 
-    <bean class="cn.cxy.spring.soundsystem.CDPlayer" id="cdPlayer" c:cd-ref="compactDisc">
-        <!--<constructor-arg ref="compactDisc"/>-->
-        /*
-        c命名空间规则：
-        c - 命名空间前缀
-        cd/0/为空 - 构造器参数名/构造器中参数索引/只有一个参数时直接省略 -- 推荐使用第二种
-        ref - 表示 bean 的引用
-        */
+    <!--
+        p 命名空间规则同 c 命名空间
+    -->
+    <bean class="cn.cxy.spring.soundsystem.CDPlayer" id="cdPlayer" p:cd-ref="compactDisc">
+        <!--<property name="cd" ref="compactDisc"/>-->
     </bean>
 
-    <bean class="cn.cxy.spring.soundsystem.BlankDisc" id="blankDisc" c:artist="JayChou" c:title="依然范特西">
+
+
+    <bean class="cn.cxy.spring.soundsystem.BlankDisc" id="blankDisc">
         /*
         c命名空间规则：
-        c - 命名空间前缀
-        cd/0/为空 - 构造器参数名/构造器中参数索引/只有一个参数时直接省略 -- 推荐使用第二种
-        ref - 表示 bean 的引用
+        1、c - 命名空间前缀
+        2、argName/0/为空 - 构造器参数名/构造器中参数索引/只有一个参数时直接省略 -- 推荐使用第二种
+        3、ref - 表示 bean 的引用
         */
         /*构造方法中含有列表*/
         <constructor-arg>
