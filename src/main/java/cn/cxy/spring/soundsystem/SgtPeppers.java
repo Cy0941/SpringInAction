@@ -1,7 +1,5 @@
 package cn.cxy.spring.soundsystem;
 
-import org.springframework.stereotype.Component;
-
 /**
  * Function: TODO
  * Reason: TODO ADD REASON(可选).</br>
@@ -19,5 +17,9 @@ public class SgtPeppers implements CompactDisc {
 
     public void play() {
         System.out.println("Playing " + title + " by " + artist);
+    }
+
+    public void playTrack(int trackNum) {
+        System.out.println("playing the " + trackNum + " disc");
     }
 }

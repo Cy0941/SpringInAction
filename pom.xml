@@ -13,6 +13,12 @@
   </properties>
 
   <dependencies>
+    <!--AOP相关-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-aspects</artifactId>
+      <version>4.3.5.RELEASE</version>
+    </dependency>
     <!--核心工具类-->
     <dependency>
       <groupId>org.springframework</groupId>

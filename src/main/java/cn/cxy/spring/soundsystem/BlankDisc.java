@@ -28,6 +28,7 @@ public class BlankDisc implements CompactDisc {
 
     /**
      * 通过属性注入
+     *
      * @param title
      */
     public void setTitle(String title) {
@@ -47,5 +48,9 @@ public class BlankDisc implements CompactDisc {
         for (String track : tracks) {
             System.out.println("-Track: " + track);
         }
+    }
+
+    public void playTrack(int trackNum) {
+        System.out.println("playing the " + trackNum + " disc");
     }
 }
