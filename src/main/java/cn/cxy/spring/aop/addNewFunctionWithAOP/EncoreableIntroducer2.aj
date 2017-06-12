@@ -12,11 +12,8 @@ import org.aspectj.lang.annotation.DeclareParents;
  * @since: Thinkingbar Web Project 1.0
  */
 
-@Aspect
-public class EncoreableIntroducer {
+public class EncoreableIntroducer2 {
 
-    //TODO
-    @DeclareParents(value = "cn.cxy.spring.aop.Performance+",defaultImpl = DefaultEncoreable.class)
     public static Encoreable encoreable;
 
 }

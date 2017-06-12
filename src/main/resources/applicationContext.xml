@@ -4,7 +4,42 @@
        xmlns:c="http://www.springframework.org/schema/c"
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:util="http://www.springframework.org/schema/util"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean class="cn.cxy.spring.aop.addNewFunctionWithAOP.EncoreableIntroducer2" id="encoreableIntroducer2"/>
+    <aop:config>
+        <aop:aspect ref="encoreableIntroducer2">
+            <aop:declare-parents types-matching="cn.cxy.spring.aop.Performance+"
+                                 implement-interface="cn.cxy.spring.aop.addNewFunctionWithAOP.Encoreable"
+                                 default-impl="cn.cxy.spring.aop.addNewFunctionWithAOP.DefaultEncoreable"/>
+        </aop:aspect>
+    </aop:config>
+
+    <bean class="cn.cxy.spring.aop.TrackCounter2" id="counter2"/>
+    <aop:config>
+        <aop:aspect ref="counter2">
+            <aop:pointcut id="trackCounter"
+                          expression="execution(* cn.cxy.spring.soundsystem.CompactDisc.playTrack(int)) and args(trackNum)"/>
+            <aop:before method="countTrack" pointcut-ref="trackCounter"/>
+        </aop:aspect>
+    </aop:config>
+
+    <bean class="cn.cxy.spring.aop.Audience2" id="audience2"/>
+    <aop:config>
+        <aop:aspect ref="audience2">
+            <!-- cxy 放在 aop:aspect 表示当前 aop:pointcut 仅限于当前范围使用，如需扩大范围，可放在 aop:config 中-->
+            <aop:pointcut id="performance" expression="execution(* cn.cxy.spring.aop.Performance.perform(..))"/>
+            <!--<aop:before method="silenceCellPhones" pointcut-ref="performance"/>
+            <aop:before method="takeSeats" pointcut-ref="performance"/>
+            <aop:after-returning method="applause" pointcut-ref="performance"/>
+            <aop:after-throwing method="demandRefund" pointcut-ref="performance"/>-->
+            <aop:around method="watchPerformance" pointcut-ref="performance"/>
+        </aop:aspect>
+    </aop:config>
+
+    <aop:aspectj-autoproxy/>
 
     <bean class="cn.cxy.spring.soundsystem.CompactDisc" id="compactDisc"/>
 
